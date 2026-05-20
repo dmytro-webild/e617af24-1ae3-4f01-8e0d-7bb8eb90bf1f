@@ -2,16 +2,16 @@
 
 import { ThemeProvider } from "@/providers/themeProvider/ThemeProvider";
 import ReactLenis from "lenis/react";
-import ContactCenter from '@/components/sections/contact/ContactCenter';
-import FaqDouble from '@/components/sections/faq/FaqDouble';
+import ContactSplit from '@/components/sections/contact/ContactSplit';
+import FaqBase from '@/components/sections/faq/FaqBase';
 import FeatureCardThree from '@/components/sections/feature/featureCardThree/FeatureCardThree';
-import FooterMedia from '@/components/sections/footer/FooterMedia';
+import FooterBase from '@/components/sections/footer/FooterBase';
 import HeroBillboardCarousel from '@/components/sections/hero/HeroBillboardCarousel';
 import MetricCardThree from '@/components/sections/metrics/MetricCardThree';
 import NavbarLayoutFloatingOverlay from '@/components/navbar/NavbarLayoutFloatingOverlay/NavbarLayoutFloatingOverlay';
 import ProductCardThree from '@/components/sections/product/ProductCardThree';
 import SplitAbout from '@/components/sections/about/SplitAbout';
-import TestimonialCardFive from '@/components/sections/testimonial/TestimonialCardFive';
+import TestimonialCardSixteen from '@/components/sections/testimonial/TestimonialCardSixteen';
 import { Coffee, Star } from "lucide-react";
 
 export default function LandingPage() {
@@ -124,15 +124,14 @@ export default function LandingPage() {
   </div>
 
   <div id="testimonials" data-section="testimonials">
-      <TestimonialCardFive
+      <TestimonialCardSixteen
       textboxLayout="default"
       useInvertedBackground={false}
+      animationType="depth-3d"
+      kpiItems={[{ value: "98%", label: "Happy Guests" }, { value: "4.9/5", label: "Average Rating" }, { value: "10K+", label: "Donuts Served" }]}
       testimonials={[
-        { id: "t1", name: "Nae McQueen", date: "6 months ago", title: "Local Guide", quote: "Decorated like a Japanese city! Unique and cool.", tag: "Excellent", avatarSrc: "http://img.b2bpic.net/free-photo/medium-shot-people-sitting-together_23-2149366418.jpg", imageSrc: "http://img.b2bpic.net/free-photo/flat-lay-composition-tasty-donuts_23-2148194234.jpg?_wi=2", imageAlt: "happy customer dining cafe" },
-        { id: "t2", name: "Sarah Jenkins", date: "1 week ago", title: "Donut Lover", quote: "Matcha and black sesame were my favorites.", tag: "Tasty", avatarSrc: "http://img.b2bpic.net/free-photo/close-up-shot-bearded-businessman-light-pink-formal-shirt-covers-eyes-with-two-delicious-doughnuts-clenches-teeth-feels-temptation_273609-24083.jpg", imageSrc: "http://img.b2bpic.net/free-photo/girl-wearing-floral-dress-wearing-hat-sitting_1150-19274.jpg?_wi=2", imageAlt: "happy customer dining cafe" },
-        { id: "t3", name: "David Kim", date: "2 weeks ago", title: "Regular", quote: "Fantastic food and service with a smile.", tag: "Friendly", avatarSrc: "http://img.b2bpic.net/free-photo/happy-cooking_1098-13267.jpg", imageSrc: "http://img.b2bpic.net/free-photo/front-view-different-ingredients-cips-flakes-nuts-grey-background-meal-snack-breakfast-color_140725-110132.jpg?_wi=2", imageAlt: "happy customer dining cafe" },
-        { id: "t4", name: "Maria Lopez", date: "1 month ago", title: "Foodie", quote: "The cheese corn dogs are absolutely addictive.", tag: "Great", avatarSrc: "http://img.b2bpic.net/free-photo/happy-birthday-me-portrait-upbeat-excited-hispanic-man-with-dreads-celebrating-bday-holding-pl_1258-109346.jpg", imageSrc: "http://img.b2bpic.net/free-photo/fresh-yummy-white-chocolate-donuts-red-background_23-2147895888.jpg?_wi=2", imageAlt: "happy customer dining cafe" },
-        { id: "t5", name: "James Chen", date: "3 months ago", title: "Daily Visitor", quote: "The best mochi donuts in all of Florida.", tag: "Unique", avatarSrc: "http://img.b2bpic.net/free-photo/smiling-asian-girl-barista-giving-order-client-holding-takeaway-coffee-cup-wearing-apron-working_1258-199319.jpg", imageSrc: "http://img.b2bpic.net/free-photo/fried-chicken-meat-seafood-barbecue-with-vegetables-wooden-skewers-plate-sauce-top-view_1253-954.jpg?_wi=2", imageAlt: "happy customer dining cafe" }
+        { id: "t1", name: "Nae McQueen", role: "Local Guide", company: "Community", rating: 5, imageSrc: "http://img.b2bpic.net/free-photo/medium-shot-people-sitting-together_23-2149366418.jpg" },
+        { id: "t2", name: "Sarah Jenkins", role: "Donut Lover", company: "Fan", rating: 5, imageSrc: "http://img.b2bpic.net/free-photo/close-up-shot-bearded-businessman-light-pink-formal-shirt-covers-eyes-with-two-delicious-doughnuts-clenches-teeth-feels-temptation_273609-24083.jpg" }
       ]}
       title="Customer Reviews"
       description="Read what our amazing customers say about us."
@@ -140,7 +139,7 @@ export default function LandingPage() {
   </div>
 
   <div id="faq" data-section="faq">
-      <FaqDouble
+      <FaqBase
       textboxLayout="default"
       useInvertedBackground={false}
       faqs={[
@@ -155,18 +154,18 @@ export default function LandingPage() {
   </div>
 
   <div id="contact" data-section="contact">
-      <ContactCenter
-      useInvertedBackground={false}
-      background={{ variant: "plain" }}
+      <ContactSplit
+      useInvertedBackground={true}
+      background={{ variant: "gradient-bars" }}
       tag="Visit Us"
       title="Join Our Community"
       description="Stay updated with our latest donut flavors and promotions."
+      imageSrc="http://img.b2bpic.net/free-photo/girl-wearing-floral-dress-wearing-hat-sitting_1150-19274.jpg?_wi=1"
     />
   </div>
 
   <div id="footer" data-section="footer">
-      <FooterMedia
-      imageSrc="http://img.b2bpic.net/free-photo/small-spoon-desert_23-2147896740.jpg"
+      <FooterBase
       logoText="MaMa YaTai & Donuts"
       columns={[
         { title: "Navigation", items: [{ label: "Menu", href: "#products" }, { label: "About", href: "#about" }, { label: "Contact", href: "#contact" }] },
